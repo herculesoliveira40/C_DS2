@@ -1,0 +1,73 @@
+@model MoveisPlanejados.Models.Movel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Movel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome_Cliente" class="control-label"></label>
+                <input asp-for="Nome_Cliente" class="form-control" />
+                <span asp-validation-for="Nome_Cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome_Movel" class="control-label"></label>
+                <input asp-for="Nome_Movel" class="form-control" />
+                <span asp-validation-for="Nome_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cor_Movel" class="control-label"></label>
+                <input asp-for="Cor_Movel" class="form-control" />
+                <span asp-validation-for="Cor_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medidas_Movel" class="control-label"></label>
+                <input asp-for="Medidas_Movel" class="form-control" />
+                <span asp-validation-for="Medidas_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Material_Movel" class="control-label"></label>
+                <input asp-for="Material_Movel" class="form-control" />
+                <span asp-validation-for="Material_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor_Movel" class="control-label"></label>
+                <input asp-for="Valor_Movel" class="form-control" />
+                <span asp-validation-for="Valor_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagem_Movel" class="control-label"></label>
+                <input asp-for="Imagem_Movel" class="form-control" />
+                <span asp-validation-for="Imagem_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status_Movel" class="control-label"></label>
+                <select asp-for="Status_Movel" class="form-control" > 
+                    <option value="Solicitado">Solicitado</option>   
+                    <option value="Em_Construcao">Em Construcao</option>
+                    <option value="Entregue">Entregue</option> 
+                </select>
+                <span asp-validation-for="Status_Movel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FuncionarioId" class="control-label"></label>
+                <select asp-for="FuncionarioId" class ="form-control" asp-items="ViewBag.FuncionarioId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

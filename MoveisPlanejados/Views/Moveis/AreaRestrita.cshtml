@@ -1,0 +1,84 @@
+@model IEnumerable<MoveisPlanejados.Models.Movel>
+
+@{
+    ViewData["Title"] = "Area Restrita";
+}
+
+<h1>Area Restrita</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create"  >Criar Novo Movel</a>
+    <a class="btn btn-outline-danger" asp-controller="Funcionarios" asp-action="Index" style="margin-left: 300px">Funcionarios</a> 
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome_Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cor_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medidas_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagem_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status_Movel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Movel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cor_Movel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medidas_Movel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material_Movel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor_Movel) R$
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagem_Movel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status_Movel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionario.Nome_Funcionario)
+            </td>
+            <td>
+                 <p>   <a asp-action="Edit" asp-route-id="@item.Id_Movel" class="btn btn-warning btn-sm">Editar</a>   </p> 
+                 <p>   <a asp-action="Details" asp-route-id="@item.Id_Movel" class="btn btn-info btn-sm">Detalhes</a>   </p> 
+                 <p>   <a asp-action="Delete" asp-route-id="@item.Id_Movel" class="btn btn-danger btn-sm">Deletar</a>   </p> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

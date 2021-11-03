@@ -1,0 +1,77 @@
+@model IEnumerable<Chocolateria.Models.Chocolate>
+
+@{
+    ViewData["Title"] = "Chocolates Gourmet ";
+}
+
+<h1> Chocolates Gourmetttttttttttttttt </h1>
+
+<a asp-action="Index"  class="btn btn-info">Voltar aos Chocolates</a>
+<table class="table table-striped">             <h3 class="text-danger">@ViewBag.msg</h3>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor_Chocolate)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Quantidade_Disponivel)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Peso_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porcentagem_Cacau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Validade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cupom_Desconto)
+            </th>
+            <th class="text-danger">
+                @Html.DisplayNameFor(model => model.Valor_Com_Cupom)
+            </th>             
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+     item.Valor_Com_Cupom = (item.Valor_Chocolate - item.Cupom_Desconto); 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor_Chocolate) R$
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Quantidade_Disponivel)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso_Chocolate) Kg
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca_Chocolate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porcentagem_Cacau) %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_Chocolate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Validade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cupom_Desconto) R$
+            </td>
+            <td class="text-danger">
+                @Html.DisplayFor(modelItem => item.Valor_Com_Cupom) R$
+            </td>   
+        </tr>
+}
+    </tbody>
+</table>

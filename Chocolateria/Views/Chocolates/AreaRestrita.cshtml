@@ -1,0 +1,77 @@
+@model IEnumerable<Chocolateria.Models.Chocolate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index Chocolates</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success btn-lg" >Criar Novo Chocolate</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade_Disponivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Porcentagem_Cacau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_Chocolate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Validade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cupom_Desconto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor_Chocolate) R$
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade_Disponivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso_Chocolate) Kg
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca_Chocolate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porcentagem_Cacau) %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_Chocolate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Validade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cupom_Desconto) R$
+            </td>
+            <td>
+             <p>   <a asp-action="Edit" asp-route-id="@item.id_Chocolate" class="btn btn-warning btn-sm">Editar Chocolate</a>   </p> 
+             <p>   <a asp-action="Details" asp-route-id="@item.id_Chocolate" class="btn btn-info btn-sm">Detalhes Chocolate</a>   </p>
+             <p>   <a asp-action="Delete" asp-route-id="@item.id_Chocolate" class="btn btn-danger btn-sm">Deletar Chocolate</a>   </p>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

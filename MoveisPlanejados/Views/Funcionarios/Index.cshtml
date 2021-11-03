@@ -1,0 +1,42 @@
+@model IEnumerable<MoveisPlanejados.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Funcionarios</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create" style="margin-right: 400px"> Criar Novo Funcionario </a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome_Funcionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status_Funcionario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Funcionario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status_Funcionario)
+            </td>
+            <td>
+                <p>   <a asp-action="Edit" asp-route-id="@item.FuncionarioId" class="btn btn-warning btn-sm">Editar</a>     </p> 
+                <p>   <a asp-action="Details" asp-route-id="@item.FuncionarioId" class="btn btn-info btn-sm">Detalhes</a>   </p> 
+                <p>   <a asp-action="Delete" asp-route-id="@item.FuncionarioId" class="btn btn-danger btn-sm">Deletar</a>   </p>                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
